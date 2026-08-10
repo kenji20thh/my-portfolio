@@ -1,143 +1,88 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
+import { ArrowUpRight, ChevronDown, Menu, X } from 'lucide-react'
 
 const projects = [
-  {
-    name: 'Northstar',
-    type: 'Product platform',
-    year: '2025',
-    description: 'A calmer operating system for ambitious teams.',
-    tone: 'project-slate',
-    mark: 'N',
-  },
-  {
-    name: 'Morrow',
-    type: 'Brand + commerce',
-    year: '2024',
-    description: 'A considered digital home for everyday objects.',
-    tone: 'project-amber',
-    mark: 'M',
-  },
-  {
-    name: 'Field Notes',
-    type: 'Editorial tool',
-    year: '2024',
-    description: 'Making research feel tactile, legible, and useful.',
-    tone: 'project-olive',
-    mark: 'F',
-  },
+  { number: '01', title: 'Business Website', description: 'A sharper digital presence for a local business, built to turn attention into action.', category: 'Web design + development', year: '2026', stack: 'Next.js / TypeScript / Tailwind', tone: 'lime' },
+  { number: '02', title: 'Full-Stack Platform', description: 'A focused product experience with authentication, APIs, database logic and a clear dashboard.', category: 'Product engineering', year: '2025', stack: 'React / Go / PostgreSQL', tone: 'blue' },
+  { number: '03', title: 'E-commerce Experience', description: 'A fast, considered shopping journey with useful product management and responsive UI.', category: 'Commerce', year: '2025', stack: 'Next.js / Stripe / CMS', tone: 'orange' },
 ]
 
 const services = [
-  ['01', 'Product design', 'From rough idea to a clear, usable product system.'],
-  ['02', 'Frontend development', 'Thoughtful interfaces built to feel fast and last.'],
-  ['03', 'Creative direction', 'A sharper point of view for digital brands in motion.'],
+  ['01', 'Business websites', 'Clear, credible websites that make small teams look established and ready.'],
+  ['02', 'Landing pages', 'High-converting pages with a point of view, not another template.'],
+  ['03', 'Full-stack applications', 'Reliable products with the interfaces, APIs and data layer to match.'],
+  ['04', 'Website redesigns', 'A new visual system and better structure for an existing digital presence.'],
+  ['05', 'Backend + API development', 'Practical services that are fast, maintainable and built to grow.'],
 ]
 
-function ArrowLink({ children, href }: { children: React.ReactNode; href: string }) {
-  return (
-    <a className="arrow-link" href={href}>
-      {children} <span aria-hidden="true">↗</span>
-    </a>
-  )
-}
+const stack = [
+  ['Frontend', 'TypeScript / React / Next.js / Tailwind CSS'],
+  ['Backend', 'Go / REST APIs / Server actions'],
+  ['Database', 'PostgreSQL / Data modeling'],
+  ['Tools', 'Git / GitHub / Docker / Vercel'],
+]
 
-function SectionLabel({ children }: { children: React.ReactNode }) {
-  return <p className="section-label">{children}</p>
-}
+const process = [
+  ['01', 'Discover', 'Understand the idea, audience and requirements.'],
+  ['02', 'Build', 'Design and develop the smallest useful version.'],
+  ['03', 'Refine', 'Test, optimize and polish every important detail.'],
+  ['04', 'Launch', 'Deploy, hand over and make sure it works in the real world.'],
+]
 
-function ProjectCard({ project, index }: { project: (typeof projects)[number]; index: number }) {
-  return (
-    <article className={`project-card reveal ${project.tone}`} style={{ transitionDelay: `${index * 90}ms` }}>
-      <div className="project-art" aria-hidden="true">
-        <span className="project-art-label">{project.name}</span>
-        <span className="project-art-mark">{project.mark}</span>
-        <span className="project-art-line" />
-      </div>
-      <div className="project-meta">
-        <div>
-          <h3>{project.name}</h3>
-          <p>{project.description}</p>
-        </div>
-        <div className="project-side">
-          <span>{project.type}</span>
-          <span>{project.year}</span>
-        </div>
-      </div>
-    </article>
-  )
+function Mark() {
+  return <span className="brand-mark" aria-hidden="true"><span /> <span /> <span /></span>
 }
 
 export default function Page() {
   const [menuOpen, setMenuOpen] = useState(false)
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => entries.forEach((entry) => entry.isIntersecting && entry.target.classList.add('is-visible')),
-      { threshold: 0.12 },
-    )
-    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el))
-    return () => observer.disconnect()
-  }, [])
+  const [openService, setOpenService] = useState<number | null>(null)
 
   const closeMenu = () => setMenuOpen(false)
 
   return (
-    <main>
-      <header className="site-header">
-        <a className="wordmark" href="#top" onClick={closeMenu} aria-label="Alex Morgan home">
-          AM<span>.</span>
-        </a>
-        <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)} aria-expanded={menuOpen} aria-controls="site-nav">
-          {menuOpen ? 'Close' : 'Menu'}
-        </button>
-        <nav id="site-nav" className={`site-nav ${menuOpen ? 'is-open' : ''}`} aria-label="Main navigation">
-          <a href="#about" onClick={closeMenu}>About</a>
-          <a href="#work" onClick={closeMenu}>Selected work</a>
-          <a href="#services" onClick={closeMenu}>Services</a>
-          <a href="#contact" onClick={closeMenu}>Contact <span aria-hidden="true">↗</span></a>
+    <main className="site-shell">
+      <header className="site-nav">
+        <a className="brand" href="#top" onClick={closeMenu}><Mark /><span>Alex Morgan</span></a>
+        <button className="menu-button" onClick={() => setMenuOpen(!menuOpen)} aria-label={menuOpen ? 'Close menu' : 'Open menu'} aria-expanded={menuOpen}>{menuOpen ? <X /> : <Menu />}</button>
+        <nav className={menuOpen ? 'nav-links is-open' : 'nav-links'} aria-label="Main navigation">
+          <a href="#work" onClick={closeMenu}>Work</a><a href="#about" onClick={closeMenu}>About</a><a href="#services" onClick={closeMenu}>Services</a><a href="#contact" onClick={closeMenu}>Contact</a><a href="#resume" onClick={closeMenu}>Resume <ArrowUpRight size={13} /></a>
         </nav>
-        <span className="availability"><i /> Available for select projects</span>
+        <div className="availability"><span /> Available for freelance work</div>
       </header>
 
-      <section className="hero page-wrap" id="top">
-        <div className="hero-kicker reveal"><span>Independent developer</span><span>New York / Remote</span></div>
-        <h1 className="hero-title reveal">Building digital<br /><em>things</em> with<br />good people<span>.</span></h1>
-        <div className="hero-bottom reveal">
-          <p>Design-minded frontend developer partnering with thoughtful teams to turn complex ideas into simple, useful experiences.</p>
-          <ArrowLink href="#work">See selected work</ArrowLink>
+      <section className="hero section-grid" id="top">
+        <div className="hero-copy reveal-up">
+          <p className="eyebrow"><span className="eyebrow-line" /> Full-stack developer / independent studio</p>
+          <h1>Building digital<br /><em>experiences</em><br />that actually work<span className="accent-dot">.</span></h1>
+          <p className="hero-intro">I&apos;m Alex — a full-stack web developer focused on building fast, responsive and scalable web experiences.</p>
+          <div className="hero-actions"><a className="button button-primary" href="#work">View my work <ArrowUpRight size={17} /></a><a className="button button-quiet" href="#contact">Let&apos;s talk <span>↗</span></a></div>
         </div>
-      </section>
-
-      <section className="intro page-wrap reveal" id="about">
-        <SectionLabel>01 / About</SectionLabel>
-        <div className="intro-copy">
-          <p className="large-copy">I care about the space where a sharp idea meets a well-made interface.</p>
-          <div className="body-copy">
-            <p>I&apos;m Alex — a freelance developer and designer who helps early-stage teams and independent brands find their clearest digital expression.</p>
-            <p>My work moves between strategy, interaction, and code. The best projects feel considered in every detail, but never overworked.</p>
-            <ArrowLink href="mailto:hello@alexmorgan.dev">Let&apos;s work together</ArrowLink>
-          </div>
+        <div className="hero-terminal reveal-up" aria-label="Developer terminal illustration">
+          <div className="terminal-top"><span>alex@studio:~</span><span className="terminal-dots"><i /><i /><i /></span></div>
+          <div className="terminal-body"><p><b className="green">const</b> <span className="blue-text">project</span> = {'{'}</p><p className="indent"><span className="muted-code">focus:</span> <span className="orange-text">&apos;useful&apos;</span>,</p><p className="indent"><span className="muted-code">quality:</span> <span className="orange-text">&apos;non-negotiable&apos;</span>,</p><p className="indent"><span className="muted-code">status:</span> <span className="green">true</span>,</p><p>{'}'}</p><p className="terminal-cursor">_</p></div>
+          <div className="terminal-foot"><span>01 / 04</span><span>Craft over noise</span></div>
         </div>
+        <a className="scroll-cue" href="#work"><span>Scroll to explore</span><span className="scroll-line" /></a>
       </section>
 
-      <section className="work page-wrap" id="work">
-        <div className="section-heading reveal"><SectionLabel>02 / Selected work</SectionLabel><span className="muted">A few things I&apos;ve helped shape</span></div>
-        <div className="projects-grid">{projects.map((project, index) => <ProjectCard key={project.name} project={project} index={index} />)}</div>
+      <section className="about section-grid" id="about">
+        <div className="section-label">About <span>01</span></div>
+        <div className="about-content"><h2>I care about the space between a good idea and a <span>great product.</span></h2><p>I&apos;m a developer who enjoys turning messy ideas into useful digital products. I work across the stack, from the first wireframe to the last production deploy, with a bias toward clarity, speed and thoughtful details.</p><p>My usual toolkit is <strong>TypeScript, React, Next.js, Tailwind CSS, Go</strong> and <strong>PostgreSQL</strong> — but the technology is always in service of the work.</p></div>
       </section>
 
-      <section className="services page-wrap" id="services">
-        <div className="section-heading reveal"><SectionLabel>03 / What I do</SectionLabel><span className="muted">Useful from first sketch to final deploy</span></div>
-        <div className="services-list">{services.map(([number, title, description]) => <div className="service-row reveal" key={number}><span className="service-number">{number}</span><h3>{title}</h3><p>{description}</p><span className="service-arrow" aria-hidden="true">↗</span></div>)}</div>
-      </section>
+      <section className="work section-grid" id="work"><div className="section-label">Selected work <span>02</span></div><div className="project-list">{projects.map((project) => <article className="project" key={project.number}><div className="project-info"><span className="project-number">{project.number}</span><h3>{project.title}</h3><p>{project.description}</p><div className="project-meta"><span>{project.category}</span><span>{project.year}</span><span>{project.stack}</span></div><a className="project-link" href="#contact">View case study <ArrowUpRight size={16} /></a></div><div className={`project-visual visual-${project.tone}`}><div className="visual-window"><div className="window-bar"><span /><span /><span /></div><div className="visual-content"><span className="visual-kicker">{project.number} / {project.category}</span><strong>{project.title.split(' ')[0]}<br /><i>{project.title.split(' ').slice(1).join(' ')}</i></strong><div className="visual-blocks"><span /><span /><span /></div></div></div></div></article>)}</div></section>
 
-      <section className="contact page-wrap reveal" id="contact">
-        <SectionLabel>04 / Start a conversation</SectionLabel>
-        <div className="contact-content"><h2>Have a good<br /><em>idea?</em> Let&apos;s talk<span>.</span></h2><ArrowLink href="mailto:hello@alexmorgan.dev">hello@alexmorgan.dev</ArrowLink></div>
-      </section>
+      <section className="services section-grid" id="services"><div className="section-label">Services <span>03</span></div><div className="services-content"><div className="services-heading"><h2>Useful work.<br /><span>Built well.</span></h2><p>Bring me a problem, a rough idea or a product that needs a sharper edge.</p></div><div className="service-list">{services.map(([number, title, description], index) => <button className={openService === index ? 'service is-open' : 'service'} key={number} onClick={() => setOpenService(openService === index ? null : index)}><span>{number}</span><strong>{title}</strong><ChevronDown size={18} /><p>{description}</p></button>)}</div></div></section>
 
-      <footer className="site-footer page-wrap"><span>© 2026 Alex Morgan</span><div><a href="https://github.com" target="_blank" rel="noreferrer">GitHub ↗</a><a href="https://linkedin.com" target="_blank" rel="noreferrer">LinkedIn ↗</a><a href="#top">Back to top ↑</a></div></footer>
+      <section className="stack section-grid"><div className="section-label">The toolkit <span>04</span></div><div className="stack-content">{stack.map(([label, value]) => <div className="stack-row" key={label}><span>{label}</span><strong>{value}</strong></div>)}</div></section>
+
+      <section className="process section-grid"><div className="section-label">How I work <span>05</span></div><div className="process-content"><h2>A clear process makes<br /><span>better work.</span></h2><div className="process-list">{process.map(([number, title, description]) => <div className="process-step" key={number}><span>{number}</span><div><h3>{title}</h3><p>{description}</p></div></div>)}</div></div></section>
+
+      <section className="contact section-grid" id="contact"><div className="contact-top"><span className="eyebrow"><span className="eyebrow-line" /> Have a project in mind?</span><h2>Let&apos;s build<br /><span>something.</span></h2></div><div className="contact-bottom"><a className="button button-primary" href="mailto:hello@alexmorgan.dev">Start a project <ArrowUpRight size={17} /></a><div className="contact-details"><a href="mailto:hello@alexmorgan.dev">hello@alexmorgan.dev</a><a href="#resume">GitHub ↗</a><a href="#resume">LinkedIn ↗</a></div></div></section>
+
+      <footer className="footer"><a className="brand" href="#top"><Mark /><span>Alex Morgan</span></a><span>Based in Portland, OR</span><span>© 2026 Alex Morgan</span><a href="#top">Back to top ↑</a></footer>
     </main>
   )
 }
