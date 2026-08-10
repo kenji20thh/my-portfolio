@@ -44,7 +44,7 @@ export default function Page() {
   return (
     <main className="site-shell">
       <header className="site-nav">
-        <a className="brand" href="#top" onClick={closeMenu}><Mark /><span>Alex Morgan</span></a>
+        <a className="brand" href="#top" onClick={closeMenu}><Mark /><span>Mohammed-Amine Elayachi</span></a>
         <button className="menu-button" onClick={() => setMenuOpen(!menuOpen)} aria-label={menuOpen ? 'Close menu' : 'Open menu'} aria-expanded={menuOpen}>{menuOpen ? <X /> : <Menu />}</button>
         <nav className={menuOpen ? 'nav-links is-open' : 'nav-links'} aria-label="Main navigation">
           <a href="#work" onClick={closeMenu}>Work</a><a href="#about" onClick={closeMenu}>About</a><a href="#services" onClick={closeMenu}>Services</a><a href="#contact" onClick={closeMenu}>Contact</a><a href="#resume" onClick={closeMenu}>Resume <ArrowUpRight size={13} /></a>
