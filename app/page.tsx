@@ -73,6 +73,8 @@ export default function Page() {
   const [menuOpen, setMenuOpen] = useState(false)
 
   useEffect(() => {
+    const elements = document.querySelectorAll('.reveal')
+
     const observer = new IntersectionObserver(
       (entries) => entries.forEach((entry) => entry.isIntersecting && entry.target.classList.add('is-visible')),
       { threshold: 0.12 },
