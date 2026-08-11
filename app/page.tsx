@@ -44,7 +44,7 @@ export default function Page() {
   return (
     <main className="site-shell">
       <header className="site-nav">
-        <a className="brand" href="#top" onClick={closeMenu}><Mark /><span>Mohammed-Amine Elayachi</span></a>
+        <a className="brand" href="#top" onClick={closeMenu}><Mark /><span>Amine Elayachi</span></a>
         <button className="menu-button" onClick={() => setMenuOpen(!menuOpen)} aria-label={menuOpen ? 'Close menu' : 'Open menu'} aria-expanded={menuOpen}>{menuOpen ? <X /> : <Menu />}</button>
         <nav className={menuOpen ? 'nav-links is-open' : 'nav-links'} aria-label="Main navigation">
           <a href="#work" onClick={closeMenu}>Work</a><a href="#about" onClick={closeMenu}>About</a><a href="#services" onClick={closeMenu}>Services</a><a href="#contact" onClick={closeMenu}>Contact</a><a href="#resume" onClick={closeMenu}>Resume <ArrowUpRight size={13} /></a>
@@ -56,7 +56,7 @@ export default function Page() {
         <div className="hero-copy reveal-up">
           <p className="eyebrow"><span className="eyebrow-line" /> Full-stack developer / independent studio</p>
           <h1>Building digital<br /><em>experiences</em><br />that actually work<span className="accent-dot">.</span></h1>
-          <p className="hero-intro">I&apos;m Alex — a full-stack web developer focused on building fast, responsive and scalable web experiences.</p>
+          <p className="hero-intro">I&apos;m Amine — a full-stack web developer focused on building fast, responsive and scalable web experiences.</p>
           <div className="hero-actions"><a className="button button-primary" href="#work">View my work <ArrowUpRight size={17} /></a><a className="button button-quiet" href="#contact">Let&apos;s talk <span>↗</span></a></div>
         </div>
         <div className="hero-terminal reveal-up" aria-label="Developer terminal illustration">
