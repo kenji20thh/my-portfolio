@@ -6,9 +6,9 @@ import { ArrowUpRight, ChevronDown, Menu, X } from 'lucide-react'
 const projects = [
   {
     number: '01',
-    title: 'Business Website',
+    title: 'Restaurant Website',
     description:
-      'A sharper digital presence for a local business, built to turn attention into action.',
+      'A modern restaurant website designed to showcase the menu, atmosphere and dining experience.',
     category: 'Web design + development',
     year: '2026',
     stack: 'Next.js / TypeScript / Tailwind',
@@ -16,22 +16,22 @@ const projects = [
   },
   {
     number: '02',
-    title: 'Full-Stack Platform',
+    title: 'Atelier',
     description:
-      'A focused product experience with authentication, APIs, database logic and a clear dashboard.',
-    category: 'Product engineering',
+      'A premium e-commerce experience with product discovery, filtering, wishlist, cart and simulated checkout.',
+    category: 'E-commerce',
     year: '2025',
-    stack: 'React / Go / PostgreSQL',
+    stack: 'Next.js / TypeScript / Tailwind / Go / PostgreSQL',
     tone: 'blue',
   },
   {
     number: '03',
-    title: 'E-commerce Experience',
+    title: 'Northbridge International School',
     description:
-      'A fast, considered shopping journey with useful product management and responsive UI.',
-    category: 'Commerce',
+      'A complete international school website with academics, admissions, campus, news and interactive forms.',
+    category: 'Education / Web design',
     year: '2025',
-    stack: 'Next.js / Stripe / CMS',
+    stack: 'Next.js / TypeScript / Tailwind',
     tone: 'orange',
   },
 ]
