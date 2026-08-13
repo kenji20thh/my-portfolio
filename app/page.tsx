@@ -14,6 +14,7 @@ const projects = [
     stack: 'Next.js / TypeScript / Tailwind',
     tone: 'lime',
     link: 'https://noor-sooty-three.vercel.app/',
+    image: '/projects/restaurant.png',
   },
   {
     number: '02',
