@@ -402,7 +402,7 @@ export default function Page() {
               amineelayachi322@gmail.com
             </a>
 
-            <a href="https://github.com" target="_blank" rel="noreferrer">
+            <a href="https://github.com/kenji20thh" target="_blank" rel="noreferrer">
               GitHub ↗
             </a>
 
