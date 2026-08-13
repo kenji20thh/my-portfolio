@@ -269,31 +269,11 @@ export default function Page() {
               </div>
 
               <div className={`project-visual visual-${project.tone}`}>
-                <div className="visual-window">
-                  <div className="window-bar">
-                    <span />
-                    <span />
-                    <span />
-                  </div>
-
-                  <div className="visual-content">
-                    <span className="visual-kicker">
-                      {project.number} / {project.category}
-                    </span>
-
-                    <strong>
-                      {project.title.split(' ')[0]}
-                      <br />
-                      <i>{project.title.split(' ').slice(1).join(' ')}</i>
-                    </strong>
-
-                    <div className="visual-blocks">
-                      <span />
-                      <span />
-                      <span />
-                    </div>
-                  </div>
-                </div>
+                <img
+                  src={project.image}
+                  alt={`${project.title} website screenshot`}
+                  className="project-image"
+                />
               </div>
             </article>
           ))}
