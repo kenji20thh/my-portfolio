@@ -24,7 +24,7 @@ const projects = [
     year: '2025',
     stack: 'Next.js / TypeScript / Tailwind / Go / PostgreSQL',
     tone: 'blue',
-    link: 
+    link: 'https://atelier-ecru-omega.vercel.app/',
   },
   {
     number: '03',
