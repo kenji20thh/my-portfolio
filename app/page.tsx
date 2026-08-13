@@ -35,6 +35,7 @@ const projects = [
     year: '2025',
     stack: 'Next.js / TypeScript / Tailwind',
     tone: 'orange',
+    link: 'https://northbridge-international-school.vercel.app/',
   },
 ]
 
