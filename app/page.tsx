@@ -410,7 +410,9 @@ export default function Page() {
         <div className="contact-bottom">
           <a
             className="button button-primary"
-            href="mailto:amineelayachi322@gmail.com"
+            href="https://mail.google.com/mail/?view=cm&fs=1&to=amineelayachi322@gmail.com"
+            target="_blank"
+            rel="noreferrer"
           >
             Start a project <ArrowUpRight size={17} />
           </a>
