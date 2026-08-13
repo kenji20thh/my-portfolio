@@ -26,7 +26,7 @@ const projects = [
     stack: 'Next.js / TypeScript / Tailwind / Go / PostgreSQL',
     tone: 'blue',
     link: 'https://atelier-ecru-omega.vercel.app/',
-    image: 'atelier.png'
+    image: '/projects/atelier.png',
   },
   {
     number: '03',
@@ -38,7 +38,7 @@ const projects = [
     stack: 'Next.js / TypeScript / Tailwind',
     tone: 'orange',
     link: 'https://northbridge-international-school.vercel.app/',
-    image: 'school.png'
+    image: '/projects/school.png',
   },
 ]
 
@@ -271,7 +271,13 @@ export default function Page() {
                 </a>
               </div>
 
-              <div className={`project-visual visual-${project.tone}`}>
+              <a
+                className={`project-visual visual-${project.tone}`}
+                href={project.link}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={`Open ${project.title} live site`}
+              >
                 <div className="visual-window">
                   <div className="window-bar">
                     <span />
@@ -296,8 +302,14 @@ export default function Page() {
                       <span />
                     </div>
                   </div>
+
+                  <img
+                    src={project.image}
+                    alt={`${project.title} website preview`}
+                    className="visual-preview"
+                  />
                 </div>
-              </div>
+              </a>
             </article>
           ))}
         </div>
