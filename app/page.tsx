@@ -13,6 +13,7 @@ const projects = [
     year: '2026',
     stack: 'Next.js / TypeScript / Tailwind',
     tone: 'lime',
+    image: '/projects/restaurant.png',
   },
   {
     number: '02',
@@ -23,6 +24,7 @@ const projects = [
     year: '2025',
     stack: 'Next.js / TypeScript / Tailwind / Go / PostgreSQL',
     tone: 'blue',
+    image: '/projects/atelier.png',
   },
   {
     number: '03',
@@ -33,6 +35,7 @@ const projects = [
     year: '2025',
     stack: 'Next.js / TypeScript / Tailwind',
     tone: 'orange',
+    image: '/projects/school.png'
   },
 ]
 
