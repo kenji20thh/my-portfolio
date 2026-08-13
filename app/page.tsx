@@ -406,8 +406,8 @@ export default function Page() {
               GitHub ↗
             </a>
 
-            <a href="https://linkedin.com" target="_blank" rel="noreferrer">
-              LinkedIn ↗
+            <a href="https://leetcode.com/u/kenji20th/" target="_blank" rel="noreferrer">
+              LeetCode ↗
             </a>
           </div>
         </div>
