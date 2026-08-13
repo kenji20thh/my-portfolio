@@ -26,6 +26,7 @@ const projects = [
     stack: 'Next.js / TypeScript / Tailwind / Go / PostgreSQL',
     tone: 'blue',
     link: 'https://atelier-ecru-omega.vercel.app/',
+    image: 'atelier.png'
   },
   {
     number: '03',
