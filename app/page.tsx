@@ -418,7 +418,11 @@ export default function Page() {
           </a>
 
           <div className="contact-details">
-            <a href="mailto:amineelayachi322@gmail.com">
+            <a
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=amineelayachi322@gmail.com"
+              target="_blank"
+              rel="noreferrer"
+            >
               amineelayachi322@gmail.com
             </a>
 
