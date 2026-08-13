@@ -13,6 +13,7 @@ const projects = [
     year: '2026',
     stack: 'Next.js / TypeScript / Tailwind',
     tone: 'lime',
+    link: 'https://noor-sooty-three.vercel.app/',
   },
   {
     number: '02',
@@ -23,6 +24,7 @@ const projects = [
     year: '2025',
     stack: 'Next.js / TypeScript / Tailwind / Go / PostgreSQL',
     tone: 'blue',
+    link: 
   },
   {
     number: '03',
@@ -260,7 +262,7 @@ export default function Page() {
                   <span>{project.stack}</span>
                 </div>
 
-                <a className="project-link" href="#contact">
+                <a className="project-link" href={project.link} target="_blank" rel="noreferrer">
                   View case study <ArrowUpRight size={16} />
                 </a>
               </div>
