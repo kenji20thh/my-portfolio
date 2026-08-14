@@ -133,9 +133,6 @@ export default function Page() {
           <a href="#contact" onClick={closeMenu}>
             Contact
           </a>
-          <a href="#resume" onClick={closeMenu}>
-            Resume <ArrowUpRight size={13} />
-          </a>
         </nav>
 
         <div className="availability">
